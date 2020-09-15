@@ -36,7 +36,7 @@ L = f*v*dx
 
 #compute solution
 X = Function(V)
-solve(a++L, X, bc)
+solve(a==L, X, bc)
 
 #plot solution
 plot(X)
