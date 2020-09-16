@@ -18,7 +18,7 @@ First, we need to figure out what step 1 and 2 are.
         
         QUESTION: what is x'? is x' x prime or is it x2?
         QUESTION: we need the boundary of the spatial domain. what is it? Is it U(x') 
-
+        QUESTION: How many variables in the X? how many dimensions?
         Need: Boundary conditions on the boundary.
 
 The justification for the above requirments is: To constitute a boundary-value problem, which is how the Fenics package solves PDEs, we need to have
