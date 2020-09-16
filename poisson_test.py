@@ -4,20 +4,6 @@ from fenics import *
 mesh = UnitSquareMesh(8, 8)
 V = FunctionSpace(mesh, 'P', 1)
 
-#define the constants 
-G = 6.674*10**(-11)
-M = 2*10**30
-epsilon = 0.001
-delta = 0.002
-#vectors just want the abs value
-x1
-x2
-
-# f the prescribed function
-#2U in this case
-#f = 2*U f defined later in the variation problem
-U = - (G*M)/(2*((epsilon**2+abs(x1-x2)**2)**delta)*delta)
-
 #define the boundary condition X_D
 X_D = Expression('boundary_condition', degree=?)
 def boundary(x, on_boundary):
@@ -28,7 +14,9 @@ bc = DirichletBC(V, X_D, boundary)
 #Define variational problem
 X = TrialFunction(V)
 v = TestFunction(V)
-f = Expression('2*U', degree=2) #f the source term
+#f the source term
+f = Expression('-2*(G*M)/(2*((epsilon**2+abs(x[0]-x1)**2)**delta)*delta)', 
+    degree=2, G = 6.674*10**(-11), M = 2*10**30, epsilon = 0.001, delta = 0.002) 
 
 #define the variation problem
 a = dot(grad(X), grad(v))*dx
