@@ -39,6 +39,7 @@ X = Function(V)
 solve(a==L, X, bc)
 
 #plot solution
+X.rename('X', 'solution')
 plot(X)
 plot(mesh)
 
